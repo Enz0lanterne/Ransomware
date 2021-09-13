@@ -17,7 +17,7 @@ def WaitF11():
     while True:
         keyboard.wait("F11") # Attendre que la personne appuie sur F11 (ça fonctionne comme un time.sleep mais avec une condition à la place d'un temps d'attente)
         pyautogui.press("F11") # Lorsque elle appuie alors on réappuie sur la touche (avec pyautogui prcq quand on le fait avec keyboard ça spam)
-        
+        os.system("color 40")    
 
 # Fonction principale
 def Main():
@@ -35,6 +35,7 @@ def Main():
             print(f"{fg(0)}{bg(1)}Appuyez sur une touche pour quitter{attr(0)}")
             os.system("pause >nul")
             os.system("exit") # ATTENTION au nom du virus
+            invalid_key = False
             break
 
         else: # Clé invalide
