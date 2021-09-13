@@ -34,6 +34,7 @@ def Main():
             print(f"{fg(2)}{bg(1)}Clé valide{attr(0)}")
             print(f"{fg(0)}{bg(1)}Appuyez sur une touche pour quitter{attr(0)}")
             os.system("pause >nul")
+            print("tu m'fais chier à trouver la clé")
             os.system("exit") # ATTENTION au nom du virus
             invalid_key = False
             break
