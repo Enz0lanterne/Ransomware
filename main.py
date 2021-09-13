@@ -33,7 +33,7 @@ def Main():
             print(f"{fg(2)}{bg(1)}Clé valide{attr(0)}")
             print(f"{fg(0)}{bg(1)}Appuyez sur une touche pour quitter{attr(0)}")
             os.system("pause >nul")
-            break
+            os.system("exit")
         
         else: # Clé invalide
             print(f"{fg(88)}{bg(1)}Clé invalide{attr(0)}")
@@ -41,7 +41,7 @@ def Main():
             time.sleep(0.5)
             if wait_until_block >= 3: # Si l'utilisateur entre une clé invalide 3 fois ou +
                 # Cryptage de fichier et autres
-                pass
+                print("tu as utilisé tes trois essais, ton pc est dans la sauce")
                 
 
 # Threads
