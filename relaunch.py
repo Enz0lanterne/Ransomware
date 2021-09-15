@@ -22,7 +22,9 @@ threads = [killtskmng] # Liste des threads
 if is_admin(): # Si l'utilisateur est administrateur
     
     # Lancer les threads un par un
-    for thread in threads: thread.start(), thread.join()
+    # for thread in threads: thread.start()
+    # for thread in threads: thread.join()
+    pass
     
 else: # Sinon relancer le launcher en administrateur
     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv[0:]), None, 1)

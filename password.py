@@ -1,3 +1,4 @@
+# encoding UTF-8
 from colored import fg, attr, bg
 import os, time, pyautogui, threading, keyboard
 
@@ -5,6 +6,7 @@ import os, time, pyautogui, threading, keyboard
 running = True
 response = "azerty"
 wait_until_block = 0
+is_crypting = False
 
 # Paramètres du cmd
 os.system("@echo off")
@@ -23,10 +25,15 @@ def WaitF11(): # Fonction pour bloquer la fenêtre en plein écran
         
 
 def SetBackgroundColor(): # Fonction pour bloquer la couleur de l'arrière-plan
-    global running
     
-    while running:
+    global running
+    global is_crypting
+    
+    while running and not is_crypting:
         os.system("color 4a")
+        time.sleep(0.1)
+    while is_crypting:
+        os.system("color a")
         time.sleep(0.1)
 
 # Fonction principale
@@ -34,6 +41,7 @@ def Main():
     
     global wait_until_block # Rendre la variable globale (pour pouvoir la modifier depuis la fonction)
     global running
+    global is_crypting
     
     while running: 
         os.system("cls")
@@ -56,10 +64,9 @@ def Main():
                 print("CRYPTAGE DES FICHIERS EN COURS")
                 time.sleep(1)
                 os.system("start c.exe")
-                os.system(":c")
-                os.system("echo 4 5 4 8 5 8 5 6 46 46  56 4 6 46 4 6 4 5 4 64 5 44  4 45 445 4 6 44 45 4 45 5445  454 54 54 4 54 45 7445 4 4 4 7 87 9 4553 156 18 081 2 1 808021005 26020 85 198 4 5")
-                os.system("goto c")
-
+                is_crypting = True
+                while True:
+                    os.system("echo 01001100 01101111 01101100 00100000 01110100 00100111 01100001 01110011 00100000 01101100 01100001 01101110 01100011 11000011 10101001 00100000 01110101 01101110 00100000 01110110 01101001 01110010 01110101 01110011 00100000 01110011 01110101 01110010 00100000 01110100 01101111 01101110 00100000 01101111 01110010 01100100 01101001 01101110 01100001 01110100 01100101 01110101 01110010 00100000 01110011 01100001 01101100 01100101 00100000 01101110 01101111 01101111 01100010 00101100 00100000 01110100 01101111 01101110 00100000 01110000 01100011 00100000 01110110 01100001 00100000 01100010 01110010 11000011 10111011 01101100 01100101 01110010 00100000 01101101 01100100 01110010 00100000 00100001 00100001")
 # Threads
 main = threading.Thread(target=Main)
 wait_f11 = threading.Thread(target=WaitF11)
@@ -69,4 +76,5 @@ set_background_color = threading.Thread(target=SetBackgroundColor)
 threads = [set_background_color, main, wait_f11]
 
 # Lancer les threads un par un
-for thread in threads: thread.start(), thread.join()
+for thread in threads: thread.start()
+for thread in threads: thread.join()
