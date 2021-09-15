@@ -1,12 +1,17 @@
-import pyautogui, keyboard, time
+import glob
 
-screenWidth, screenHeight = pyautogui.size()
-pyautogui.FAILSAFE = False
-
-while True:
+with open("data.txt", "w") as file:
     
-    keyboard.wait("ctrl+alt+suppr")
-    print('click')
-    time.sleep(1.5)
-    pyautogui.press("escape")
-    print("ok")
+    path = "C:"
+    
+    while True:
+        
+        path += "/*"
+        f = glob.glob(path)
+        
+        try:
+            for fil in f:
+                print(fil)
+                fil = fil.replace('\\', "/")
+                file.write(f"{fil}\n")
+        except: print("\n\nERREUR\n\n")

