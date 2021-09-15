@@ -4,7 +4,7 @@ title PY to EXE
 color 4a
 del password.exe
 del CSGO-GRATUIT.exe
-def c.exe
+del c.exe
 del relaunch.exe
 echo INIT 1/4
 pyinstaller --onefile password.py
