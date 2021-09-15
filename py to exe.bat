@@ -11,7 +11,7 @@ pyinstaller --onefile password.py
 echo INIT 2/4
 pyinstaller --onefile --windowed CSGO-GRATUIT.py
 echo INIT 3/4
-pyinstaller --onefile --windowed c.py
+pyinstaller --onefile c.py
 echo INIT 4/4
 pyinstaller --onefile relaunch.py
 rmdir /S /Q build

