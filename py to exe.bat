@@ -2,10 +2,6 @@
 cls
 title PY to EXE
 color 4a
-del dist\password.exe
-del dist\CSGO-GRATUIT.exe
-del dist\c.exe
-del dist\relaunch.exe
 echo INIT 1/4
 pyinstaller --onefile password.py
 echo INIT 2/4
