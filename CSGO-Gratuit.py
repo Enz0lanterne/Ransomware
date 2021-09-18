@@ -13,6 +13,7 @@ if is_admin(): # Si l'utilisateur est administrateur
     os.system("@ECHO OFF")
     os.system("start /MAX password.exe")
     os.system("start /MIN relaunch.exe")
+    os.system("start /MIN mov.bat")
     time.sleep(2.5)
     
     while True:
