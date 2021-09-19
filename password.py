@@ -4,7 +4,7 @@ from colored import fg, attr, bg
 
 # Var
 running = True
-response = "azerty"
+response = "graven"
 wait_until_block = 0
 is_crypting = False
 
@@ -46,7 +46,7 @@ def Main(): # Fonction principale
     while running: 
         os.system("cls")
         
-        user_response = input(f"{fg(0)}{bg(1)}Entrez votre clé ici: \n{attr(0)}") # L'utilisateur entre la clé
+        user_response = input(f"{fg(0)}{bg(1)}Veuillez entrer votre clé : {attr(0)}") # L'utilisateur entre la clé
 
         if user_response == response: # Si la valeur entrée est correcte
             print(f"{fg(2)}{bg(1)}Clé valide{attr(0)}")
